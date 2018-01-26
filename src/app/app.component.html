@@ -1,8 +1,10 @@
-<app-cabecalho></app-cabecalho>
+<app-cabecalho [pontos]="contador"></app-cabecalho>
+
 
 <section>
-  <app-peixe topo="300px" esquerda="100px"></app-peixe>
-  <app-peixe topo="200px" esquerda="200px"></app-peixe>
-  <app-peixe topo="600px" esquerda="600px"></app-peixe>
-  <app-peixe topo="300px" esquerda="400px"></app-peixe>
+  <app-peixe *ngFor ="let peixe of peixes" 
+    [topo]="peixe.altura" [esquerda]="peixe.largura"
+    [ngClass]="{pescou: peixe.pescado}"
+    (click)= "tirarPeixe(peixe)"></app-peixe>
+  
 </section>
